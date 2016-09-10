@@ -33,7 +33,7 @@ namespace LetterCountingFunction
                 longestChain[3] = FindLongestLetterCountingChain(int.MaxValue / 2, int.MaxValue);
             });
 
-            while(counter.Any(s => s.Status == TaskStatus.Running))
+            while(!counter.All(s => s.Status == TaskStatus.RanToCompletion))
             {
                 Thread.Yield();
             }
